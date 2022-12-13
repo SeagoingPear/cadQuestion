@@ -1,0 +1,128 @@
+<div class="flex">
+  <div *ngFor="let module of modules">
+    <div style="margin-right: 50px;">Número do módulo: <b>{{ module.idModule }}</b></div>
+    <div style="margin-right: 50px;">Nome do módulo: <b>{{ module.moduleName }}</b></div>
+  </div>
+</div>
+
+<hr>
+
+<div class="flex">
+<form>
+  <h2>Questões</h2>
+  <br>
+  <label for="moduleNum">
+    Número do módulo: <span class="red">*</span>
+    <input type="number" id="moduleNum" name="moduleNum" [(ngModel)]="cadQuestion.modules_idModule">
+  </label>
+
+  <label for="level">
+    Número do nível: <span class="red">*</span>
+    <input type="number" id="level" name="level" [(ngModel)]="cadQuestion.level">
+  </label>
+
+  <label for="floorNum">
+    Número do andar: <span class="red">*</span>
+    <input type="number" id="floorNum" name="floorNum" [(ngModel)]="cadQuestion.floor">
+  </label>
+
+  <label for="questionNum">
+    Número da Questão: <span class="red">*</span>
+    <input type="number" id="questionNum" name="questionNum" [(ngModel)]="cadQuestion.questionNum">
+  </label>
+
+  <label for="bonus">
+    bonus:
+    <input type="checkbox" id="bonus" name="bonus" [(ngModel)]="cadQuestion.bonus">
+  </label>
+
+  <label for="questionType">
+    Tipo da questão: <span class="red">*</span>
+    <select name="questionType" id="questionType" [(ngModel)]="cadQuestion.questionType">
+      <option value="objective">Objetiva</option>
+      <option value="flowchart">Fluxograma</option>
+    </select>
+  </label>
+
+  <label for="question">
+    Questão: <span class="red">*</span>
+    <input type="text" id="question" name="question" [(ngModel)]="cadQuestion.question">
+  </label>
+
+  <label for="answerC1">
+    Resposta correta 1: <span class="red">*</span>
+    <input type="text" id="answerC1" name="answerC1" [(ngModel)]="cadQuestion.answerC1">
+  </label>
+
+  <label for="answerC2">
+    Resposta correta 2:
+    <input type="text" id="answerC2" name="answerC2" [(ngModel)]="cadQuestion.answerC2">
+  </label>
+
+  <label for="answerE1">
+    Resposta errada 1: <span class="red">*</span>
+    <input type="text" id="answerE1" name="answerE1" [(ngModel)]="cadQuestion.answerE1">
+  </label>
+
+  <label for="answerE2">
+    Resposta errada 2:
+    <input type="text" id="answerE2" name="answerE2" [(ngModel)]="cadQuestion.answerE2">
+  </label>
+
+  <label for="answerE3">
+    Resposta errada 3:
+    <input type="text" id="answerE3" name="answerE3" [(ngModel)]="cadQuestion.answerE3">
+  </label>
+
+  <button type="reset" (click)="postQuestion()">Cadastrar</button>
+</form>
+</div>
+
+<div class="flex">
+  <form>
+    <h2>Explicações</h2>
+    <br>
+    <label for="questions_idQuestion">
+      Id da questão: <span class="red">*</span>
+      <input type="number" id="questions_idQuestion" name="questions_idQuestion" [(ngModel)]="cadExplanation.questions_idQuestion">
+    </label>
+
+    <label for="explanation">
+      Explicação: <span class="red">*</span>
+      <input type="text" id="explanation" name="explanation" [(ngModel)]="cadExplanation.explanation">
+    </label>
+
+    <label for="imgFlowchart">
+      Path da img do fluxograma:
+      <input type="text" id="imgFlowchart" name="imgFlowchart" [(ngModel)]="cadExplanation.imgFlowchart">
+    </label>
+
+    <button type="reset" (click)="postExplanation()">Cadastrar</button>
+  </form>
+</div>
+
+<div class="flex">
+  <form>
+    <h2>Links</h2>
+    <br>
+    <label for="questions_idQuestion">
+      Id da explicação: <span class="red">*</span>
+      <input type="number" id="questions_idQuestion" name="questions_idQuestion" [(ngModel)]="cadLink.explanations_questions_idQuestion">
+    </label>
+
+    <label for="linkType">
+      Tipo do link: <span class="red">*</span>
+      <select name="linkType" id="linkType" [(ngModel)]="cadLink.linkType">
+        <option value="video">Video</option>
+        <option value="article">Article</option>
+      </select>
+    </label>
+
+    <label for="link">
+      Link: <span class="red">*</span>
+      <input type="text" id="link" name="link" [(ngModel)]="cadLink.link">
+    </label>
+
+    <button type="reset" (click)="postLink()">Cadastrar</button>
+  </form>
+</div>
